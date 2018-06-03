@@ -13,5 +13,7 @@ rebel-remote.xml
 
 build.txt
 
+out/*
+
 node_modules/
 **.sass-cache**
