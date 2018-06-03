@@ -1,4 +1,4 @@
-package jdk_base;
+package jdk_test.jdk_base;
 
 public class ThreadJoinTest {
 

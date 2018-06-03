@@ -1,4 +1,4 @@
-package jdk_concurrency;
+package jdk_test.jdk_concurrency;
 
 import java.util.Collections;
 import java.util.HashMap;
