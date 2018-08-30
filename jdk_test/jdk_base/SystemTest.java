@@ -1,6 +1,7 @@
 package jdk_test.jdk_base;
 
 import java.net.URL;
+import java.nio.charset.Charset;
 
 public class SystemTest {
 
@@ -37,5 +38,7 @@ public class SystemTest {
 
         System.out.println(System.getProperty("user.dir"));
 
+        /*============================================================================================================*/
+        System.out.println(Charset.defaultCharset());
     }
 }

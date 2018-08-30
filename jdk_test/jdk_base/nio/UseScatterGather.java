@@ -1,6 +1,5 @@
 package jdk_test.jdk_base.nio;
 
-import java.io.*;
 import java.net.*;
 import java.nio.*;
 import java.nio.channels.*;

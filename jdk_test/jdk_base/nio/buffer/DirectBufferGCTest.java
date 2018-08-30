@@ -2,6 +2,9 @@ package jdk_test.jdk_base.nio.buffer;
 
 import java.nio.ByteBuffer;
 
+/**
+ * 堆外内存分配还是会被GC回收
+ */
 public class DirectBufferGCTest {
 
     public static void main(String[] args) {
