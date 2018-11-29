@@ -66,9 +66,9 @@ public class JdkProxyTest {
         //对原始方法的增强，缺点在于对所有的方法都是同一种增强方式，没法定制化。
         @Override
         public Object invoke(Object proxy, Method method, Object[] args) throws Exception {
-            System.out.println("=======before invoke job=======");
+            System.out.println("=============before invoke job=============");
             Object result = method.invoke(target, args);  //执行目标对象中定于的原始方法
-            System.out.println("=======after invoke job========\n");
+            System.out.println("============after invoke job=============\n");
             return result;
         }
 
@@ -82,14 +82,13 @@ public class JdkProxyTest {
 
     public static void main(String[] args) {
         /**
-         * sun.misc.ProxyGenerator.saveGeneratedFiles = true 表示生成的代理类将落在磁盘上
-         * 生成的代理类路径就在$user.dir/com/sun/proxy/
+         * sun.misc.ProxyGenerator.saveGeneratedFiles = true 表示生成的代理类将落在磁盘上生成的代理类路径就在$user.dir/com/sun/proxy/
          */
         System.out.println(System.getProperty("sun.misc.ProxyGenerator.saveGeneratedFiles"));
         System.out.println(System.getProperty("user.dir"));
 
         proxyInvoke();
-        System.out.println("============================");
+        System.out.println("================================================");
         reflectInvoke();
     }
 
@@ -102,33 +101,33 @@ public class JdkProxyTest {
         Object proxy = Proxy.newProxyInstance(
                 BaseImpl.class.getClassLoader(),                //创建了代理类之后需要使用该类加载器加载代理类
                 new Class<?>[]{BaseOne.class, BaseTwo.class},   //代理目标类实现的接口类(支持代理多个接口，需代理目标类都实现)
-                new WavingInvocationHandler(target));               //代理目标类如何做增强
+                new WavingInvocationHandler(target));           //代理目标类如何做增强
 
         System.out.println("the proxy class name is: " + proxy.getClass().getName()); //代理类包名默认是com.sun.proxy，类名默认是$Proxy+自增的整数值
-        System.out.println("============================\n");
+        System.out.println("===============================================\n");
 
         ((BaseOne) proxy).firstJob();
         ((BaseOne) proxy).secondJob();
         ((BaseTwo) proxy).thirdJob();
 
-        System.out.println("============================\n");
+        System.out.println("===============================================\n");
 
         Object proxyBind = new WavingInvocationHandler(target).bind();
         ((BaseOne) proxyBind).firstJob();
         ((BaseOne) proxyBind).secondJob();
         ((BaseTwo) proxyBind).thirdJob();
 
-        System.out.println("=============printName start===============");
+        System.out.println("=================printName start=================");
         // 生成的代理类的超类是Proxy，并实现了代理目标类的所有的接口，与代理目标类无任何继承关系，所以proxy是不能强转成代理目标类的。
         //((BaseImpl)proxy).printName();
-        System.out.println("=============printName end=================\n");
+        System.out.println("=================printName end=================\n");
 
         System.out.println("=============object function start===============");
         //toString、hashCode、equals都得到了增强
         System.out.println(proxy.toString());
         System.out.println(proxy.hashCode());
         System.out.println(proxy.equals(target));
-        System.out.println("=============object function end=================");
+        System.out.println("==============object function end=================");
 
     }
 

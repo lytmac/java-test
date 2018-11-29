@@ -72,7 +72,7 @@ public class SpinLockTest {
     }
 
     public static void main(String[] args) {
-        testSingleThread();
+        //testSingleThread();
         testMultiThread();
 
     }

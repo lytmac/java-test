@@ -1,19 +1,29 @@
 package jdk_test.jdk_concurrency;
 
 import java.util.concurrent.*;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * note-1: FutureTask 在任务还未执行前，取消任务是会成功的。
  * note-2: 对已取消成功的FutureTask调用get(timeout)获取任务执行结果,会直接抛出异常CancellationException
  */
 public class FutureTaskTest {
-    private static ExecutorService executorService = Executors.newCachedThreadPool();
+    private static ExecutorService cacheExecutor = Executors.newCachedThreadPool();
+
+    private static ReentrantLock lock = new ReentrantLock();
+
+    private static Condition condition = lock.newCondition();
 
     public static void main(String[] args) {
+        testCancel();
+        testAwaitDone();
+    }
 
+    private static void testCancel() {
         for (int index = 0; index < 100; index++) {
-            FutureTask task = new FutureTask(new MyTask(index));
-            executorService.submit(task);
+            FutureTask task = new FutureTask(new TestTask(index));
+            cacheExecutor.submit(task);
 
             if (index >= 90) {
                 if (task.cancel(true)) { //如果任务取消成功
@@ -31,17 +41,37 @@ public class FutureTaskTest {
         }
     }
 
-    private static class MyTask implements Callable {
+    private static void testAwaitDone() {
+        lock.lock();
+
+        FutureTask task = new FutureTask(new TestTask(1));
+        cacheExecutor.submit(task);
+        try {
+            condition.await();
+            long start = System.currentTimeMillis();
+            Integer result = (Integer) task.get();
+            System.out.println("the result is:" + result + "wait time is: " + (System.currentTimeMillis() - start));
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            lock.unlock();
+        }
+    }
+
+    private static class TestTask implements Callable {
 
         private int taskNum;
 
-        public MyTask(int taskNum) {
+        public TestTask(int taskNum) {
             this.taskNum = taskNum;
         }
 
         @Override
         public Object call() throws Exception {
-            Thread.sleep(200); //确保任务submit后不会马上执行
+            lock.lock();
+            condition.signalAll();
+            lock.unlock();
+            Thread.sleep(20000); //确保任务submit后不会马上执行
             System.out.println(Thread.currentThread() + " is running my task: " + getTaskNum());
             return getTaskNum();
         }

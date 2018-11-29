@@ -14,9 +14,9 @@ public class SerializableTest {
     private static final String PATH = "/Users/cdliuyang25/Code/Git/java-test/out/test/java-test/jdk_test/jdk_base/nio/test_file/serializable";
 
     public static void main(String[] args) throws Exception {
-        testFuncWriteObject();
+        //testFuncWriteObject();
         testTransient();
-        testInherit();
+        //testInherit();
     }
 
     private static void testFuncWriteObject() throws Exception {
@@ -48,21 +48,36 @@ public class SerializableTest {
 
         File file = new File(PATH);
 
+        FileInputStream fis = new FileInputStream(file);
+
         ObjectOutputStream outputStream = new ObjectOutputStream(new FileOutputStream(file));
 
         ObjectInputStream inputStream = new ObjectInputStream(new FileInputStream(file));
 
+
         outputStream.writeObject(objOrigin);
+        outputStream.flush();
+        outputStream.close();
 
-        TestObj objRead = (TestObj) inputStream.readObject();
+        if (fis.available() == 0) System.out.println("--------");
+        else if (fis.available() < 0) System.out.println("++++++++++");
+        else System.out.println("==========");
 
-        System.out.println("member 0: " + objRead.getMember0());
-        System.out.println("member 1: " + objRead.getMember1());
-        System.out.println("member 2: " + objRead.getMember2());
-        System.out.println("member 3: " + objRead.getMember3()); //打印的是:0
+        while (inputStream.available() > 0) {
+            TestObj objRead = (TestObj) inputStream.readObject();
+
+            System.out.println("member 0: " + objRead.getMember0());
+            System.out.println("member 1: " + objRead.getMember1());
+            System.out.println("member 2: " + objRead.getMember2());
+            System.out.println("member 3: " + objRead.getMember3()); //打印的是:0
+        }
+
+
     }
 
     private static class TestObj implements Serializable {
+        private static final long serialVersionUID = 1L;
+
         private static int member0 = 10;
 
         private int member1;
@@ -75,13 +90,21 @@ public class SerializableTest {
             this.member3 = member3;
         }
 
-        private int getMember0() { return member0; }
+        private int getMember0() {
+            return member0;
+        }
 
-        private int getMember1() { return member1; }
+        private int getMember1() {
+            return member1;
+        }
 
-        private int getMember2() { return member2; }
+        private int getMember2() {
+            return member2;
+        }
 
-        private int getMember3() { return member3; }
+        private int getMember3() {
+            return member3;
+        }
 
     }
 
@@ -111,18 +134,27 @@ public class SerializableTest {
          * 子类对象反序列化时，会构造出父类对象。如果未提供构造函数会抛出InvalidClassException。
          * 因父类未实现Serializable接口，故子类对象序列化时不会记录父类对象的字段的信息
          */
-        public Parent() {}
+        public Parent() {
+        }
 
-        public int getMember1() { return member1; }
+        public int getMember1() {
+            return member1;
+        }
 
-        public void setMember1(int member1) { this.member1 = member1; }
+        public void setMember1(int member1) {
+            this.member1 = member1;
+        }
 
-        public int getMember2() { return member2; }
+        public int getMember2() {
+            return member2;
+        }
 
-        public void setMember2(int member2) { this.member2 = member2; }
+        public void setMember2(int member2) {
+            this.member2 = member2;
+        }
     }
 
-    private static class Child extends Parent implements Serializable  {
+    private static class Child extends Parent implements Serializable {
         private int member3;
         private int member4;
 
@@ -133,8 +165,12 @@ public class SerializableTest {
             this.member4 = 1;
         }
 
-        public int getMember3() { return member3; }
+        public int getMember3() {
+            return member3;
+        }
 
-        public int getMember4() { return member4; }
+        public int getMember4() {
+            return member4;
+        }
     }
 }

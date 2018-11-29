@@ -86,7 +86,7 @@ public class CglibProxyTest {
             }
 
             /**
-             * equals、toString、hashCode、clone.这四个方法都会经过accpet的处理
+             * equals、toString、hashCode、clone.这四个方法都会经过accept的处理
              */
             System.out.println(method.getName() + ": 未明确声明的方法！");
             return 0;
