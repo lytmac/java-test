@@ -1,4 +1,4 @@
-package jdk_test.jdk_base.reference;
+package jdk_base.reference;
 
 import java.lang.ref.ReferenceQueue;
 import java.lang.ref.WeakReference;

@@ -1,4 +1,4 @@
-package jdk_test.jdk_base.nio;
+package jdk_base.nio;
 
 import java.net.*;
 import java.nio.*;

@@ -1,4 +1,4 @@
-package jdk_test.jdk_base.io;
+package jdk_base.io;
 
 import java.io.File;
 import java.io.FileInputStream;

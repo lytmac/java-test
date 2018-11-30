@@ -1,4 +1,4 @@
-package jdk_test.jdk_concurrency;
+package jdk_concurrency;
 
 import java.util.concurrent.*;
 import java.util.concurrent.locks.Condition;

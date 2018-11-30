@@ -1,4 +1,4 @@
-package alg_test.consistent_hash;
+package consistent_hash;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -9,7 +9,8 @@ import java.util.SortedSet;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import static alg_test.consistent_hash.HashUtil.hash;
+import static consistent_hash.HashUtil.hash;
+
 
 /**
  * 一致性hash算法实现。

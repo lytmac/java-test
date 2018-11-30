@@ -1,4 +1,4 @@
-package jdk_test.jdk_base.dynamic_proxy;
+package jdk_base.dynamic_proxy;
 
 
 import net.sf.cglib.core.DebuggingClassWriter;
@@ -127,19 +127,16 @@ public class CglibProxyTest {
         System.out.println("===============================");
         //构造函数并不会执行该属性的初始化，而是延迟到调用get方法才执行
         PropertyBean lazyLoadPropertyBean = bean.getLazyLoadPropertyBean();
-        System.out.println(lazyLoadPropertyBean.getKey());
-        System.out.println(lazyLoadPropertyBean.getValue());
+        System.out.println(lazyLoadPropertyBean.toString());
 
 
         PropertyBean dispatcherPropertyBean1 = bean.getDispatcherPropertyBean();
-        System.out.println(dispatcherPropertyBean1.getValue());
-        System.out.println(dispatcherPropertyBean1.getValue());
+        System.out.println(dispatcherPropertyBean1.toString());
 
         System.out.println("===============================");
         //Dispatcher会每次都调用
         PropertyBean dispatcherPropertyBean2 = bean.getDispatcherPropertyBean();
-        System.out.println(dispatcherPropertyBean2.getValue());
-        System.out.println(dispatcherPropertyBean2.getValue());
+        System.out.println(dispatcherPropertyBean2.toString());
 
 
 

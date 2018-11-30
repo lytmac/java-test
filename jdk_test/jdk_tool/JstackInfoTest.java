@@ -1,4 +1,4 @@
-package jdk_test.jdk_tool;
+package jdk_tool;
 
 import java.util.ArrayList;
 import java.util.List;

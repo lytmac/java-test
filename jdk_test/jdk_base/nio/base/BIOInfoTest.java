@@ -1,4 +1,4 @@
-package jdk_test.jdk_base.nio.base;
+package jdk_base.nio.base;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -1,4 +1,4 @@
-package jdk_test.jdk_base;
+package jdk_base;
 
 import java.io.*;
 import java.util.Base64;

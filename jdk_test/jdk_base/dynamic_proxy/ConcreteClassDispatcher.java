@@ -1,4 +1,4 @@
-package jdk_test.jdk_base.dynamic_proxy;
+package jdk_base.dynamic_proxy;
 
 import net.sf.cglib.proxy.Dispatcher;
 

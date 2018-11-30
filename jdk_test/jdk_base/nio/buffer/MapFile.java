@@ -1,4 +1,4 @@
-package jdk_test.jdk_base.nio.buffer;
+package jdk_base.nio.buffer;
 
 import java.io.File;
 import java.io.RandomAccessFile;

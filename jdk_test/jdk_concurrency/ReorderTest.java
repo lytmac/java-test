@@ -1,4 +1,4 @@
-package jdk_test.jdk_concurrency;
+package jdk_concurrency;
 
 public class ReorderTest {
 	static int x = 0, y = 0;

@@ -1,4 +1,4 @@
-package jdk_test.jdk_base.reference;
+package jdk_base.reference;
 
 import java.lang.ref.PhantomReference;
 import java.lang.ref.Reference;

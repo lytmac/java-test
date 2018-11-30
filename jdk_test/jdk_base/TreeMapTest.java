@@ -1,4 +1,4 @@
-package jdk_test.jdk_base;
+package jdk_base;
 
 import java.util.Map;
 import java.util.TreeMap;

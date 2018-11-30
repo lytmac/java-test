@@ -1,4 +1,4 @@
-package jdk_test.jdk_base.nio.buffer;
+package jdk_base.nio.buffer;
 
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;

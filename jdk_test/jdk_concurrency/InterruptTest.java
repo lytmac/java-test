@@ -1,4 +1,4 @@
-package jdk_test.jdk_concurrency;
+package jdk_concurrency;
 
 /**
  * 线程中断测试

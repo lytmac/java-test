@@ -1,4 +1,4 @@
-package jdk_test.jdk_base.dynamic_proxy;
+package jdk_base.dynamic_proxy;
 
 import java.lang.reflect.*;
 
@@ -148,12 +148,12 @@ public class JdkProxyTest {
 
 /**
  * 生成的代理类中的static块代码
- * static {
- * m1 = Class.forName("java.lang.Object").getMethod("equals", new Class[] { Class.forName("java.lang.Object") });
- * m3 = Class.forName("jdk_test.jdk_base.dynamic_proxy.JdkProxyTest$BaseOne").getMethod("firstJob", new Class[0]);
- * m4 = Class.forName("jdk_test.jdk_base.dynamic_proxy.JdkProxyTest$BaseOne").getMethod("secondJob", new Class[0]);
- * m0 = Class.forName("java.lang.Object").getMethod("hashCode", new Class[0]);
- * m5 = Class.forName("jdk_test.jdk_base.dynamic_proxy.JdkProxyTest$BaseTwo").getMethod("thirdJob", new Class[0]);
- * m2 = Class.forName("java.lang.Object").getMethod("toString", new Class[0]);
- * }
+ *  static {
+ *      m1 = Class.forName("java.lang.Object").getMethod("equals", new Class[] { Class.forName("java.lang.Object") });
+ *      m3 = Class.forName("jdk_test.jdk_base.dynamic_proxy.JdkProxyTest$BaseOne").getMethod("firstJob", new Class[0]);
+ *      m4 = Class.forName("jdk_test.jdk_base.dynamic_proxy.JdkProxyTest$BaseOne").getMethod("secondJob", new Class[0]);
+ *      m0 = Class.forName("java.lang.Object").getMethod("hashCode", new Class[0]);
+ *      m5 = Class.forName("jdk_test.jdk_base.dynamic_proxy.JdkProxyTest$BaseTwo").getMethod("thirdJob", new Class[0]);
+ *      m2 = Class.forName("java.lang.Object").getMethod("toString", new Class[0]);
+ *  }
  **/

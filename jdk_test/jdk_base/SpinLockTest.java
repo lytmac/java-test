@@ -1,4 +1,4 @@
-package jdk_test.jdk_base;
+package jdk_base;
 
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;

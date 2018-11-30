@@ -1,4 +1,4 @@
-package jdk_test.jdk_base.concurrence;
+package jdk_base.concurrence;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.FutureTask;

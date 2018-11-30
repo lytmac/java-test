@@ -1,4 +1,4 @@
-package jdk_test.jdk_base.nio.channel;
+package jdk_base.nio.channel;
 
 import java.nio.ByteBuffer;
 import java.nio.channels.Channels;

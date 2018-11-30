@@ -1,4 +1,4 @@
-package alg_test.consistent_hash;
+package consistent_hash;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
