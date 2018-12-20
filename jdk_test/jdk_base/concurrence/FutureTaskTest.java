@@ -6,16 +6,13 @@ import java.util.concurrent.FutureTask;
 public class FutureTaskTest {
 
     public static void main(String[] args) throws Exception {
-        FutureTask task = new FutureTask(new Callable<Integer>() {
-            @Override
-            public Integer call() {
-                try {
-                    Thread.sleep(2000);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                return 1;
+        FutureTask task = new FutureTask((Callable<Integer>) () -> {
+            try {
+                Thread.sleep(2000);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return 1;
         });
 
         new Thread(task).start();

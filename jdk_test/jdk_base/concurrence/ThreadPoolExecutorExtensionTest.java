@@ -7,11 +7,8 @@ public class ThreadPoolExecutorExtensionTest {
     private static final ExecutorService exe = new ThreadPoolExecutorExtension();
 
     public static void main(String[] args) {
-        exe.submit(new Runnable() {
-            @Override
-            public void run() {
-                throw new StackOverflowError();
-            }
+        exe.submit((Runnable) () -> {
+            throw new StackOverflowError();
         });
     }
 
@@ -20,7 +17,7 @@ public class ThreadPoolExecutorExtensionTest {
         public ThreadPoolExecutorExtension() {
             super(1, 1,
                     0L, TimeUnit.MILLISECONDS,
-                    new LinkedBlockingQueue<Runnable>());
+                    new LinkedBlockingQueue<>());
         }
 
         @Override
