@@ -14,13 +14,12 @@ public class BitShiftOperatorTest {
      */
     private static void testBitShift() {
         int a = 2, b = -2;
+        int c = 0b01111111111111111111111111111111;
 
         System.out.println(a >> 1);  // 1
         System.out.println(b >> 1);  // -1
         System.out.println(a >>> 1); // 1
         System.out.println(b >>> 1); // 2147483647：0111 1111 1111 1111 1111 1111 1111 1111
-
-        int c = 0b01111111111111111111111111111111;
-        System.out.println(c << 1); //-2
+        System.out.println(c << 1);  // -2
     }
 }

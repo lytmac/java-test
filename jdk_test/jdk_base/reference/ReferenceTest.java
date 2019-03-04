@@ -21,8 +21,8 @@ public class ReferenceTest {
     private static void testWeak() {
         Object obj = new Object();
 
-        ReferenceQueue<Object> weakQueue = new ReferenceQueue<>();
-        WeakReference<Object> weakReference = new WeakReference<>(obj, weakQueue);
+        final ReferenceQueue<Object> weakQueue = new ReferenceQueue<>();
+        final WeakReference<Object> weakReference = new WeakReference<>(obj, weakQueue);
 
         new Thread(new Runnable() {
             @Override
@@ -51,8 +51,8 @@ public class ReferenceTest {
     private static void testSoft() {
         Object obj = new Object();
 
-        ReferenceQueue<Object> softQueue = new ReferenceQueue<>();
-        SoftReference<Object> softReference = new SoftReference<>(obj, softQueue);
+        final ReferenceQueue<Object> softQueue = new ReferenceQueue<>();
+        final SoftReference<Object> softReference = new SoftReference<>(obj, softQueue);
 
         new Thread(new Runnable() {
             @Override
@@ -84,8 +84,8 @@ public class ReferenceTest {
     private static void testPhantom() {
         Object obj = new Object();
 
-        ReferenceQueue<Object> phantomQueue = new ReferenceQueue<>();
-        PhantomReference<Object> phantomReference = new PhantomReference<>(obj, phantomQueue);
+        final ReferenceQueue<Object> phantomQueue = new ReferenceQueue<>();
+        final PhantomReference<Object> phantomReference = new PhantomReference<>(obj, phantomQueue);
 
         new Thread(new Runnable() {
             @Override

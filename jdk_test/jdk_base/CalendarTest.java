@@ -16,5 +16,8 @@ public class CalendarTest {
         System.out.println("the minute is: " + calendar.get(Calendar.MINUTE));
 
 
+        Integer x = (1 << 16);
+        System.out.print("the max is:" + Integer.toHexString(Integer.valueOf(x.toString(), 10)));
+        System.out.print("the max is:" + Integer.toOctalString(Integer.valueOf(x.toString(), 10)));
     }
 }

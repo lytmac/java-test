@@ -12,7 +12,7 @@ public class PhantomReferenceTest {
 
     private static void testResultOfGet() {
         Object referent = new Object();
-        ReferenceQueue queue = new ReferenceQueue();
+        final ReferenceQueue queue = new ReferenceQueue();
 
         PhantomReference<Object> reference = new PhantomReference<>(referent, queue);
 

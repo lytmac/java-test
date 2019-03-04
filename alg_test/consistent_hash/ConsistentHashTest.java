@@ -1,4 +1,4 @@
-package jdk_base;
+package consistent_hash;
 
 import java.util.ArrayList;
 import java.util.List;

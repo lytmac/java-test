@@ -1,4 +1,4 @@
-package jdk_base;
+package jdk_base.generic;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
