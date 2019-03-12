@@ -9,24 +9,24 @@ public class SystemTest {
 
         /*=======java程序在启动以后，会在 ${java.io.tmpdir}/hsperfdata_${User}目录下创建一个文件，文件名即为java进程的pid========*/
         /*=================================jps、jconsole、jvisualvm等工具的数据来源就是这个文件=============================*/
-        System.out.println(System.getProperty("java.io.tmpdir"));
+        System.out.println("java.io.tmpdir: " + System.getProperty("java.io.tmpdir"));
         System.out.println("--------------------------");
         /*============================================================================================================*/
 
 
         /*==========================================AppClassLoader加载目录==============================================*/
-        System.out.println(System.getProperty("java.class.path"));
+        System.out.println("java.class.path: " + System.getProperty("java.class.path"));
         System.out.println("--------------------------");
         /*============================================================================================================*/
 
         /*==========================================ExtClassLoader加载目录==============================================*/
-        System.out.println(System.getProperty("java.ext.dirs"));
+        System.out.println("java.ext.dirs: " + System.getProperty("java.ext.dirs"));
         System.out.println("--------------------------");
         /*============================================================================================================*/
 
 
         /*====================================Bootstrap ClassLoader加载目录(两个都是)====================================*/
-        System.out.println(System.getProperty("sun.boot.class.path"));
+        System.out.println("sun.boot.class.path: " + System.getProperty("sun.boot.class.path"));
         System.out.println("--------------------------");
 
 
@@ -36,7 +36,7 @@ public class SystemTest {
         }
         /*============================================================================================================*/
 
-        System.out.println(System.getProperty("user.dir"));
+        System.out.println("user.dir: " + System.getProperty("user.dir"));
 
         /*============================================================================================================*/
         System.out.println(Charset.defaultCharset());
